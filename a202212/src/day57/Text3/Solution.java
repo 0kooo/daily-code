@@ -1,4 +1,4 @@
-package day57;
+package day57.Text3;
 
 class Solution {
     public int[] minOperations(String boxes) {
