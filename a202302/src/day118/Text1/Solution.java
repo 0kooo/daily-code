@@ -1,2 +1,7 @@
-package day118.Text1;public class Solution {
+package day118.Text1;
+
+class Solution {
+    public boolean canWinNim(int n) {
+        return n % 4 != 0;
+    }
 }
