@@ -1,0 +1,36 @@
+package day231.Test1;
+
+//1170. 比较字符串最小字母出现频次
+class Solution {
+    public int[] numSmallerByFrequency(String[] queries, String[] words) {
+        int[] count = new int[12];
+        for (String word : words) {
+            count[f(word)]++;
+        }
+        for (int i = 9; i >= 1; i--){
+            count[i] += count[i + 1];
+        }
+        int n = queries.length;
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            String s = queries[i];
+            res[i] = count[f(s) + 1];
+        }
+        return res;
+    }
+
+    public int f(String s){
+        int cnt = 0;
+        char ch = 'z';
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if(c < ch){
+                ch = c;
+                cnt = 1;
+            }else if(c == ch){
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+}
